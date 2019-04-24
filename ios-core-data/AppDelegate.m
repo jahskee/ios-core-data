@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import "CustomerMO+CoreDataClass.h"
+#import "CustomerMO+CoreDataProperties.h"
 @interface AppDelegate ()
+
 
 @end
 
@@ -17,17 +19,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self managedObjectModel];
-    [self persistenceStoreCoordinator];
+    [self persistentStoreCoordinator];
     NSManagedObjectContext *moc = [self managedObjectContext];
-   
-    NSAssert(moc == nil, @"Unable to create managed Object Context");
+    NSAssert(moc != nil, @"Unable to create managed Object Context");
     // Override point for customization after application launch.
     return YES;
 }
 
+
+# pragma - Mark My Custom Models
 - (CustomerMO *)createCustomerMO {
-     
     NSManagedObjectContext *moc = [self managedObjectContext];
+    if (moc == nil) {
+        NSLog(@"moc is nil");
+    }
     CustomerMO *customerMO = [NSEntityDescription insertNewObjectForEntityForName:@"CustomerMO" inManagedObjectContext:moc];
     NSLog(@"Creating Customer Entity.");
     return customerMO;
@@ -44,7 +49,7 @@
 }
 
 - (NSManagedObjectModel *)managedObjectModel {
-    if (_managedObjectContext != nil) {
+    if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
     
@@ -101,5 +106,7 @@
         }
     }
 }
+
+
 
 @end

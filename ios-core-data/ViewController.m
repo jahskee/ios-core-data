@@ -12,9 +12,12 @@
 
 @interface ViewController ()
 @property (nonatomic) AppDelegate *appDelegate;
+@property (weak, nonatomic) IBOutlet UILabel *persistedData;
+
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
+@property (weak, nonatomic) IBOutlet UITextField *mi;
 @property (weak, nonatomic) IBOutlet UITextField *lastName;
-@property (weak, nonatomic) IBOutlet UITextField *email;
+
 @end
 
 @implementation ViewController
@@ -22,7 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.appDelegate =  (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [self updateCustomerToList];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -30,8 +35,49 @@
 - (IBAction)addCustomerButton:(id)sender {
     CustomerMO *c = [self.appDelegate createCustomerMO];
     c.firstname = self.firstName.text;
+    c.mi = self.mi.text;
     c.lastname = self.lastName.text;
-    c.email = self.email.text;
     [self.appDelegate saveContext];
+    [self updateCustomerToList];
 }
+
+- (IBAction)deleteListButton:(id)sender {
+    NSManagedObjectContext *moc = self.appDelegate.managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CustomerMO"];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Person objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    
+    for (CustomerMO *c in results) {
+        [moc deleteObject:c];
+    }
+    [self updateCustomerToList];
+}
+
+
+- (void) updateCustomerToList {
+    NSManagedObjectContext *moc = self.appDelegate.managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CustomerMO"];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching CustomerMO objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    
+    NSMutableString *buffer = [NSMutableString stringWithString:@""];
+    for(CustomerMO *c in results) {
+        [buffer appendFormat:@"\n%@ %@. %@", c.firstname, c.mi, c.lastname, nil];
+    }
+    
+    self.persistedData.text = buffer;
+}
+
+
+
 @end

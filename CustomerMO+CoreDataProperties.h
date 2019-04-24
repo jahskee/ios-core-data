@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<CustomerMO *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *email;
+@property (nullable, nonatomic, copy) NSString *mi;
 @property (nullable, nonatomic, copy) NSString *firstname;
 @property (nullable, nonatomic, copy) NSString *lastname;
 
