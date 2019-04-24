@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "CustomerMO+CoreDataClass.h"
 @interface AppDelegate ()
 
 @end
@@ -17,10 +17,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self managedObjectModel];
+    [self persistenceStoreCoordinator];
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSAssert(moc == nil, @"Unable to create managed Object Context");
     // Override point for customization after application launch.
     return YES;
 }
 
+- (CustomerMO *)createCustomer {
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    CustomerMO *customerMO = [NSEntityDescription insertNewObjectForEntityForName:@"CustomerMO" inManagedObjectContext:moc];
+    return customerMO;
+}
 
 #pragma mark - Core Data stack
 
