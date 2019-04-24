@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import "CustomerMO+CoreDataClass.h"
 
 @interface ViewController ()
 @property (nonatomic) AppDelegate *appDelegate;

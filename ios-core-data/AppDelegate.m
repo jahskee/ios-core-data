@@ -27,6 +27,7 @@
 - (CustomerMO *)createCustomer {
     NSManagedObjectContext *moc = [self managedObjectContext];
     CustomerMO *customerMO = [NSEntityDescription insertNewObjectForEntityForName:@"CustomerMO" inManagedObjectContext:moc];
+    NSLog(@"Creating Customer Entity.");
     return customerMO;
 }
 

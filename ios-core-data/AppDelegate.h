@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "CustomerMO+CoreDataClass.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,6 +18,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistenceStoreCoordinator;
 
+- (CustomerMO *)createCustomer;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
