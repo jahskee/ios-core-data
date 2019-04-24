@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ios-core-data/ViewController.m"
-            timestampString = "577823572.133832"
+            filePath = "ios-core-data/AppDelegate.m"
+            timestampString = "577824270.6407861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-addCustomerButton:"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-createCustomerMO"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
