@@ -12,6 +12,9 @@
 
 @interface ViewController ()
 @property (nonatomic) AppDelegate *appDelegate;
+@property (weak, nonatomic) IBOutlet UITextField *firstName;
+@property (weak, nonatomic) IBOutlet UITextField *lastName;
+@property (weak, nonatomic) IBOutlet UITextField *email;
 @end
 
 @implementation ViewController
@@ -23,5 +26,12 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+- (IBAction)addCustomerButton:(id)sender {
+    CustomerMO *c = [self.appDelegate createCustomerMO];
+    c.firstname = self.firstName.text;
+    c.lastname = self.lastName.text;
+    c.email = self.email.text;
+    [self.appDelegate saveContext];
 }
 @end

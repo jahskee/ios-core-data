@@ -18,7 +18,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistenceStoreCoordinator;
 
-- (CustomerMO *)createCustomer;
+- (CustomerMO *)createCustomerMO;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

@@ -19,12 +19,14 @@
     [self managedObjectModel];
     [self persistenceStoreCoordinator];
     NSManagedObjectContext *moc = [self managedObjectContext];
+   
     NSAssert(moc == nil, @"Unable to create managed Object Context");
     // Override point for customization after application launch.
     return YES;
 }
 
-- (CustomerMO *)createCustomer {
+- (CustomerMO *)createCustomerMO {
+     
     NSManagedObjectContext *moc = [self managedObjectContext];
     CustomerMO *customerMO = [NSEntityDescription insertNewObjectForEntityForName:@"CustomerMO" inManagedObjectContext:moc];
     NSLog(@"Creating Customer Entity.");
