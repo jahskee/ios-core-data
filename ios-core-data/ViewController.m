@@ -39,6 +39,7 @@
     c.lastname = self.lastName.text;
     [self.appDelegate saveContext];
     [self updateCustomerToList];
+    [self clearEntryForm];
 }
 
 - (IBAction)deleteListButton:(id)sender {
@@ -58,6 +59,12 @@
     [self updateCustomerToList];
 }
 
+- (void) clearEntryForm {
+    self.firstName.text = @"";
+    self.lastName.text = @"";
+    self.mi.text = @"";
+    [self.firstName becomeFirstResponder];
+}
 
 - (void) updateCustomerToList {
     NSManagedObjectContext *moc = self.appDelegate.managedObjectContext;
@@ -76,6 +83,7 @@
     }
     
     self.persistedData.text = buffer;
+    [self.firstName becomeFirstResponder];
 }
 
 
