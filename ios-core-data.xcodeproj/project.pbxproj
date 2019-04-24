@@ -14,6 +14,8 @@
 		040D56E8226F601A002509EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040D56E7226F601A002509EC /* Assets.xcassets */; };
 		040D56EB226F601A002509EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040D56E9226F601A002509EC /* LaunchScreen.storyboard */; };
 		040D56EE226F601A002509EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D56ED226F601A002509EC /* main.m */; };
+		040D57422270731D002509EC /* CustomerMO+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D573F2270731D002509EC /* CustomerMO+CoreDataClass.m */; };
+		040D57432270731D002509EC /* CustomerMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D57412270731D002509EC /* CustomerMO+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,10 @@
 		040D56EA226F601A002509EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		040D56EC226F601A002509EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		040D56ED226F601A002509EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		040D573E2270731D002509EC /* CustomerMO+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CustomerMO+CoreDataClass.h"; sourceTree = "<group>"; };
+		040D573F2270731D002509EC /* CustomerMO+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CustomerMO+CoreDataClass.m"; sourceTree = "<group>"; };
+		040D57402270731D002509EC /* CustomerMO+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CustomerMO+CoreDataProperties.h"; sourceTree = "<group>"; };
+		040D57412270731D002509EC /* CustomerMO+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CustomerMO+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +50,10 @@
 		040D56CF226F6019002509EC = {
 			isa = PBXGroup;
 			children = (
+				040D573E2270731D002509EC /* CustomerMO+CoreDataClass.h */,
+				040D573F2270731D002509EC /* CustomerMO+CoreDataClass.m */,
+				040D57402270731D002509EC /* CustomerMO+CoreDataProperties.h */,
+				040D57412270731D002509EC /* CustomerMO+CoreDataProperties.m */,
 				040D56DA226F6019002509EC /* ios-core-data */,
 				040D56D9226F6019002509EC /* Products */,
 			);
@@ -144,8 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040D57422270731D002509EC /* CustomerMO+CoreDataClass.m in Sources */,
 				040D56E6226F6019002509EC /* ios_core_data.xcdatamodeld in Sources */,
 				040D56E0226F6019002509EC /* ViewController.m in Sources */,
+				040D57432270731D002509EC /* CustomerMO+CoreDataProperties.m in Sources */,
 				040D56EE226F601A002509EC /* main.m in Sources */,
 				040D56DD226F6019002509EC /* AppDelegate.m in Sources */,
 			);
